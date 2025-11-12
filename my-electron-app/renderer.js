@@ -22,15 +22,23 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     let interval
     let time = 2000
+    let len
+    let msg = new SpeechSynthesisUtterance()
+    let voices = speechSynthesis.getVoices()
+    console.log(voices);
+    
+    msg.voice = voices[1]
 
     // function for bingo run
     function intervalFun(){
-            let len = nums.length
+            len = nums.length
             // console.log(len);
             
             let selected = Math.floor(Math.random() * len)
             // console.log(selected)
             let num = nums[selected]
+            msg.text = num
+            window.speechSynthesis.speak(msg)
             // console.log(num);
             numsOut.unshift(num)
             console.log(numsOut);
@@ -54,8 +62,10 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     // start bingo
     function start(){
-        interval = setInterval(intervalFun,time)
-        console.log("começou");
+        if(len != 0){
+            interval = setInterval(intervalFun,time)
+            console.log("começou");
+        }
     }
 
     function restart(){
@@ -64,6 +74,8 @@ window.addEventListener("DOMContentLoaded",()=>{
         for(let i=1; i<100;i++){
             nums.push(i)
         }
+
+        start()
     }
     
 

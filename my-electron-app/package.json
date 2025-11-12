@@ -29,6 +29,7 @@
     "electron": "^39.1.2"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "html2canvas": "^1.4.1"
   }
 }
