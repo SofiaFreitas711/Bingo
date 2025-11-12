@@ -1,0 +1,22 @@
+# no node dependencies, if u want use npm install
+node_modules/
+
+# no Electron build outputs, if u want to start the project you can use npm run start
+dist/
+out/
+*.exe
+*.app
+*.dmg
+*.zip
+
+#  no logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+#variables and editor
+.env
+.vscode/
+.idea/

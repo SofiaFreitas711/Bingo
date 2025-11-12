@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <select name="ocasion" id="ocasion">
+        <option value="bday">Bday</option>
+        <option value="party">Party</option>
+        <option value="dinner">Casual Dinner</option>
+        <option value="thx">Thanksgivving</option>
+        <option value="xmas">Xmas</option>
+        <option value="newYear">New Year</option>
+      </select>
+    </nav>
+  </header>
+    <h1>Hello from Electron renderer!</h1>
+    <p>👋</p>
+  <script src="renderer.js"></script>
+</body>
+</html>
