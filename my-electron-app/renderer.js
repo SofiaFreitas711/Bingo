@@ -2,6 +2,7 @@
 // console.log('✅ renderer carregado')
 
 window.addEventListener("DOMContentLoaded",()=>{
+
     let theme = document.querySelector("select").value
     let select = document.querySelector("select")
     select.addEventListener("change", ()=>{
@@ -14,20 +15,28 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     let nums = []
     let numsOut = []
-    for(let i=1; i<100;i++){
+    for(let i=1; i<=90;i++){
         nums.push(i)
     }
     console.log(nums);
 
 
     let interval
-    let time = 2000
+    let time = 3500
     let len
     let msg = new SpeechSynthesisUtterance()
     let voices = speechSynthesis.getVoices()
     console.log(voices);
     
     msg.voice = voices[1]
+
+    let divNums = document.querySelectorAll('div')
+    
+    function createNums(){
+        for(let i=1; i<=90;i++){
+            divNums[2].innerHTML += `<p>${i}</p>`
+        }
+    }
 
     // function for bingo run
     function intervalFun(){
@@ -42,7 +51,10 @@ window.addEventListener("DOMContentLoaded",()=>{
             // console.log(num);
             numsOut.unshift(num)
             console.log(numsOut);
-            
+            let p = document.querySelectorAll('p')
+            p[num].classList.add("out")
+            let numOutP = document.querySelector("#numOut")
+            numOutP.innerHTML = num
             nums = nums.filter((a)=>a != num)
             if(nums.length == 0){
                 // console.log("entrei aqui");
@@ -55,8 +67,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     // stop bingo
     function stop(){
         clearInterval(interval)
-        console.log("parou");
-        
+        console.log("parou"); 
 
     }
 
@@ -74,6 +85,11 @@ window.addEventListener("DOMContentLoaded",()=>{
         for(let i=1; i<100;i++){
             nums.push(i)
         }
+        divNums[2].innerHTML = ``
+        console.log(divNums[2].innerHTML);
+        
+        createNums()
+        console.log(divNums[2].innerHTML);
 
         start()
     }
@@ -85,5 +101,9 @@ window.addEventListener("DOMContentLoaded",()=>{
     stopBtn.addEventListener("click",stop)
     let restartBtn = document.querySelector("#restart")
     restartBtn.addEventListener("click",restart)
+    createNums()
+    
+    // console.log(divNums, divNums[2].innerHTML);
+    
 })
 

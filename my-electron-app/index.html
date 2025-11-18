@@ -28,11 +28,17 @@
       </select>
     </nav>
   </header>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <button id="restart">Restart</button>
+  <main>
+    <div id="numBtn">
+      <p id="numOut">Clique no start</p>
+      <div id="btns">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="restart">Restart</button>
+      </div>
+    </div>
+    <div id="nums"></div>
+  </main>
   <script src="renderer.js"></script>
 </body>
 </html>
